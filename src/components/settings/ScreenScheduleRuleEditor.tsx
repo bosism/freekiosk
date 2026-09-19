@@ -275,7 +275,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: Spacing.md,
     borderLeftWidth: 4,
-    borderLeftColor: Colors.info || '#2b7fff',
+    borderLeftColor: Colors.info || '#f0b429',
   },
   previewTitle: {
     ...Typography.label,

@@ -207,7 +207,7 @@ class MainActivity : ReactActivity() {
   private val powerMenuRelockHandler = Handler(Looper.getMainLooper())
   private var powerMenuRelockPending = false
 
-  override fun getMainComponentName(): String = "FreeKiosk"
+  override fun getMainComponentName(): String = "ESP710"
 
   override fun createReactActivityDelegate(): ReactActivityDelegate =
       DefaultReactActivityDelegate(this, mainComponentName, fabricEnabled)

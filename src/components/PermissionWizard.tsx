@@ -109,7 +109,7 @@ const ITEMS: PermItem[] = [
   {
     key: 'usage',
     label: 'Usage access',
-    description: 'Lets FreeKiosk detect and relaunch the foreground app in external-app mode.',
+    description: 'Lets ESP710 detect and relaunch the foreground app in external-app mode.',
     icon: 'chart-bar',
     check: () => safeBool(KioskModule?.hasUsageStatsPermission()),
     action: async () => {

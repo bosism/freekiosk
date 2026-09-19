@@ -475,7 +475,7 @@ export const MqttSettingsSection: React.FC<MqttSettingsSectionProps> = ({
         if (granted !== PermissionsAndroid.RESULTS.GRANTED) {
           Alert.alert(
             'Camera Permission Required',
-            'FreeKiosk needs camera access to publish camera snapshots over MQTT.'
+            'ESP710 needs camera access to publish camera snapshots over MQTT.'
           );
           return;
         }
@@ -552,7 +552,7 @@ export const MqttSettingsSection: React.FC<MqttSettingsSectionProps> = ({
               <Text style={styles.statusText}>
                 {getStatusText()}
               </Text>
-              {isLoading && <ActivityIndicator size="small" color="#007AFF" style={styles.loader} />}
+              {isLoading && <ActivityIndicator size="small" color="#f0b429" style={styles.loader} />}
             </View>
 
             {connectionError && (
@@ -593,13 +593,13 @@ export const MqttSettingsSection: React.FC<MqttSettingsSectionProps> = ({
                 <Text style={styles.dozeTitle}>Battery optimization is active</Text>
               </View>
               <Text style={styles.dozeText}>
-                Android may suspend FreeKiosk's network once the tablet has been idle for a
+                Android may suspend ESP710's network once the tablet has been idle for a
                 while, so the broker drops the connection and Home Assistant shows the device
-                as unavailable after a couple of hours. Exempting FreeKiosk keeps MQTT alive.
+                as unavailable after a couple of hours. Exempting ESP710 keeps MQTT alive.
               </Text>
               <TouchableOpacity style={styles.dozeButton} onPress={handleRequestBatteryExemption}>
                 <Icon name="shield-check" size={16} color="#FFF" />
-                <Text style={styles.connectButtonText}>Exempt FreeKiosk</Text>
+                <Text style={styles.connectButtonText}>Exempt ESP710</Text>
               </TouchableOpacity>
               <Text style={styles.dozeText}>
                 If the dialog does not appear, grant it over ADB instead:
@@ -934,7 +934,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 8,
     fontSize: 13,
-    color: '#1e63d6',
+    color: '#c48f14',
     lineHeight: 18,
   },
 });

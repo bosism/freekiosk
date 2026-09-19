@@ -101,3 +101,20 @@ Current patches:
 - **`@react-native-community+slider+5.1.1.patch`** — re-entrancy guard in `ReactSliderManager.onProgressChanged()` to stop a `StackOverflowError` when initializing a Slider on Android 8.x (#86).
 - **`@react-native-cookies+cookies+6.2.1.patch`** — build/compat fix.
 - **`react-native-vision-camera+4.7.3.patch`** — three fixes: (1) guard `CameraDevicesManager` against `getCameraIdList()` returning `null` on cameraless x86 / BlissOS devices, which otherwise throws an NPE during TurboModule init and crashes the app on launch (#187); (2) `runOnUiThreadAndWait()` now routes exceptions back to the suspended coroutine via `resumeWith(Result.failure(e))` instead of letting them escape as an uncaught exception on the UI Handler thread (which crashed the app); (3) `CameraViewModule.takePhoto()` calls `findCameraView()` inside `withPromise` so a `ViewNotFoundError` (CameraView unmounted mid-capture, e.g. motion detection) rejects the promise instead of crashing — the `backgroundCoroutineScope` has no exception handler. Together (2)+(3) fix the `ViewNotFoundError` crash from `findCameraView` reported on v1.2.19.
+
+## ESP710 rebrand (this branch)
+
+This branch is a skin of upstream FreeKiosk for the ESP710 tablet (6-7", runs the ESP710
+QGroundControl build as the external app). Package name stays `com.freekiosk` so the ADB
+and QR provisioning docs still apply. What the rebrand touches:
+
+- App name `ESP710`: `android/app/src/main/res/values/strings.xml`, `app.json`, and
+  `MainActivity.getMainComponentName()` (the last two must stay identical).
+- Logo `src/assets/images/logo*.png` and every `mipmap-*` launcher icon: white "ESP710"
+  in Barlow Condensed on black, generated with Pillow.
+- Palette `src/theme/colors.ts`: black background, near-black surfaces, light grey text,
+  amber accent `#f0b429`. Same colour table as the QGC-Stealth skin.
+- User-visible "FreeKiosk" strings in `src/` say "ESP710"; log tags, "FreeKiosk Cloud",
+  URLs and identifiers are untouched.
+- `.github/workflows/android-build.yml` builds the APK on GitHub and uploads it as a
+  run artifact, since this repo's dev sandbox cannot reach the Android SDK servers.

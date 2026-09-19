@@ -751,7 +751,7 @@ const WebViewComponent = forwardRef<WebViewComponentRef, WebViewComponentProps>(
           }
         } else if (data.type === 'PRINT_REQUEST') {
           // Handle print request from window.print()
-          PrintModule.printWebView(data.title || 'FreeKiosk Print', data.paperSize || 'A4')
+          PrintModule.printWebView(data.title || 'ESP710 Print', data.paperSize || 'A4')
             .then(() => console.log('[WebView] Print job started'))
             .catch((err: any) => console.error('[WebView] Print failed:', err));
         } else if (data.type === 'PDF_VIEWER_CLOSE') {
@@ -872,7 +872,7 @@ const WebViewComponent = forwardRef<WebViewComponentRef, WebViewComponentProps>(
             </View>
 
             {/* Title */}
-            <Text style={styles.welcomeTitle}>FreeKiosk</Text>
+            <Text style={styles.welcomeTitle}>ESP710</Text>
             <Text style={styles.welcomeSubtitle}>
               Professional Kiosk Application
             </Text>
@@ -899,7 +899,7 @@ const WebViewComponent = forwardRef<WebViewComponentRef, WebViewComponentProps>(
               onPress={handleNavigateToSettings}
               activeOpacity={0.8}
             >
-              <Icon name="rocket-launch" size={20} color="#2b7fff" style={styles.buttonLeadingIcon} />
+              <Icon name="rocket-launch" size={20} color="#f0b429" style={styles.buttonLeadingIcon} />
               <Text style={styles.setupButtonText}>
                 Start Configuration
               </Text>
@@ -1186,7 +1186,7 @@ const WebViewComponent = forwardRef<WebViewComponentRef, WebViewComponentProps>(
       
       {loading && !error && (
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#2b7fff" />
+          <ActivityIndicator size="large" color="#f0b429" />
           <Text style={styles.loadingText}>Loading...</Text>
           {/* Fallback settings button inside loading overlay */}
           <TouchableOpacity
@@ -1248,7 +1248,7 @@ const WebViewComponent = forwardRef<WebViewComponentRef, WebViewComponentProps>(
 
 const FeatureItem: React.FC<{ icon: IconName; text: string }> = ({ icon, text }) => (
   <View style={styles.featureItem}>
-    <Icon name={icon} size={22} color="#2b7fff" style={styles.featureIcon} />
+    <Icon name={icon} size={22} color="#f0b429" style={styles.featureIcon} />
     <Text style={styles.featureText}>{text}</Text>
   </View>
 );
@@ -1258,7 +1258,7 @@ const styles = StyleSheet.create({
   // WELCOME SCREEN STYLES
   welcomeContainer: {
     flex: 1,
-    backgroundColor: '#2b7fff',
+    backgroundColor: '#000000',
   },
   scrollContent: {
     flexGrow: 1,
@@ -1334,7 +1334,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   setupButton: {
-    backgroundColor: '#fff',
+    backgroundColor: '#f0b429',
     paddingVertical: 18,
     paddingHorizontal: 40,
     borderRadius: 12,
@@ -1348,7 +1348,7 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   setupButtonText: {
-    color: '#2b7fff',
+    color: '#0a0c0e',
     fontSize: 18,
     fontWeight: 'bold',
   },
@@ -1402,19 +1402,19 @@ const styles = StyleSheet.create({
     top: 0, left: 0, right: 0, bottom: 0,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#000000',
   },
   loadingText: { 
     marginTop: 10, 
     fontSize: 16, 
-    color: '#666' 
+    color: '#a0a8b0' 
   },
   errorContainer: {
     position: 'absolute',
     top: 0, left: 0, right: 0, bottom: 0,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#000000',
     padding: 20,
   },
   errorIcon: {
@@ -1423,25 +1423,25 @@ const styles = StyleSheet.create({
   },
   errorText: { 
     fontSize: 18, 
-    color: '#333', 
+    color: '#d9dde1', 
     marginBottom: 10, 
     textAlign: 'center', 
     fontWeight: 'bold' 
   },
   errorSubtext: { 
     fontSize: 14, 
-    color: '#666', 
+    color: '#a0a8b0', 
     marginBottom: 10, 
     textAlign: 'center' 
   },
   helpText: { 
     fontSize: 14, 
-    color: '#666', 
+    color: '#a0a8b0', 
     marginBottom: 20, 
     textAlign: 'center' 
   },
   reloadButton: { 
-    backgroundColor: '#2b7fff', 
+    backgroundColor: '#f0b429', 
     paddingHorizontal: 30, 
     paddingVertical: 15, 
     borderRadius: 8,
@@ -1452,7 +1452,7 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
   reloadText: { 
-    color: '#fff', 
+    color: '#0a0c0e', 
     fontSize: 16, 
     fontWeight: 'bold' 
   },

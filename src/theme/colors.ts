@@ -1,73 +1,75 @@
 /**
- * FreeKiosk v1.2 - Color Palette
+ * ESP710 - Color Palette
  * Centralized color system for consistent UI.
- * Brand-aligned with FreeKiosk Cloud: primary #2b7fff, navy content, soft blue-tinted surfaces.
+ * ESP710 skin: true-black background, near-black surfaces, light grey text and an amber
+ * accent, matching the Stealth Ops palette of the ESP710 QGroundControl build so the
+ * kiosk shell and the ground-control app it hosts look like one device.
  */
 
 export const Colors = {
-  // Primary brand colors (FreeKiosk Cloud blue)
-  primary: '#2b7fff',
-  primaryLight: '#e8f1ff',
-  primaryDark: '#1e63d6',
+  // Primary accent (amber, same as QGC-Stealth primaryButton / buttonHighlight)
+  primary: '#f0b429',
+  primaryLight: '#2a2410',
+  primaryDark: '#c48f14',
 
   // Secondary accent
-  secondary: '#22c55e',
-  secondaryLight: '#e7f9ef',
-  secondaryDark: '#15803d',
+  secondary: '#8bc34a',
+  secondaryLight: '#1c2814',
+  secondaryDark: '#5a7a35',
 
   // Status colors
-  success: '#22c55e',
-  successLight: '#e7f9ef',
-  successDark: '#15803d',
+  success: '#8bc34a',
+  successLight: '#1c2814',
+  successDark: '#5a7a35',
 
-  warning: '#f59e0b',
-  warningLight: '#fff6e0',
-  warningDark: '#b45309',
+  warning: '#f0b429',
+  warningLight: '#3a2a08',
+  warningDark: '#c48f14',
 
-  error: '#ef4444',
-  errorLight: '#fee2e2',
-  errorDark: '#b91c1c',
+  error: '#ff4b4b',
+  errorLight: '#3a1414',
+  errorDark: '#b32020',
 
-  info: '#2b7fff',
-  infoLight: '#e8f1ff',
-  infoDark: '#1e63d6',
+  info: '#f0b429',
+  infoLight: '#2a2410',
+  infoDark: '#c48f14',
 
-  // Neutral colors (soft blue-tinted, echoing cloud light theme)
-  background: '#f3f6ff',
-  surface: '#ffffff',
-  surfaceVariant: '#f8faff',
+  // Neutral colors (black background, near-black surfaces)
+  background: '#000000',
+  surface: '#121517',
+  surfaceVariant: '#1a1d20',
 
-  // Text colors (navy content, like cloud base-content)
-  textPrimary: '#1b2a4d',
-  textSecondary: '#5a6b8c',
-  textHint: '#8b99b5',
-  textDisabled: '#c2cbdd',
-  textOnPrimary: '#ffffff',
+  // Text colors (light grey on black)
+  textPrimary: '#d9dde1',
+  textSecondary: '#a0a8b0',
+  textHint: '#7d868e',
+  textDisabled: '#4a545c',
+  textOnPrimary: '#0a0c0e',
 
-  // Border colors (blue-tinted, subtle)
-  border: '#e2e8f5',
-  borderLight: '#eef2fb',
-  divider: '#e2e8f5',
+  // Border colors
+  border: '#2b3239',
+  borderLight: '#1f2429',
+  divider: '#2b3239',
 
   // Specific UI elements
-  switchTrackOff: '#c2cbdd',
-  switchTrackOn: '#9dc2ff',
-  switchThumbOff: '#ffffff',
+  switchTrackOff: '#2b3239',
+  switchTrackOn: '#8c6a1a',
+  switchThumbOff: '#d9dde1',
 
   // Shadows
-  shadow: '#0d1730',
+  shadow: '#000000',
 
   // Tab specific
-  tabActive: '#2b7fff',
-  tabInactive: '#8b99b5',
-  tabIndicator: '#2b7fff',
+  tabActive: '#f0b429',
+  tabInactive: '#7d868e',
+  tabIndicator: '#f0b429',
 
   // Card backgrounds by type
-  cardDefault: '#ffffff',
-  cardInfo: '#e8f1ff',
-  cardWarning: '#fff6e0',
-  cardError: '#fee2e2',
-  cardSuccess: '#e7f9ef',
+  cardDefault: '#121517',
+  cardInfo: '#2a2410',
+  cardWarning: '#3a2a08',
+  cardError: '#3a1414',
+  cardSuccess: '#1c2814',
 };
 
 export type ColorKey = keyof typeof Colors;

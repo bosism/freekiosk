@@ -1187,7 +1187,7 @@ const SettingsScreenNew: React.FC<SettingsScreenProps> = ({ navigation }) => {
       if (!canInstall) {
         Alert.alert(
           'Permission Required',
-          'FreeKiosk needs permission to install updates.\n\nPlease enable "Allow from this source" on the next screen, then come back and try the update again.',
+          'ESP710 needs permission to install updates.\n\nPlease enable "Allow from this source" on the next screen, then come back and try the update again.',
           [
             { text: 'Cancel', style: 'cancel' },
             {
@@ -1230,7 +1230,7 @@ const SettingsScreenNew: React.FC<SettingsScreenProps> = ({ navigation }) => {
       if (error?.code === 'INSTALL_PERMISSION' || errorMsg.includes('unknown sources')) {
         Alert.alert(
           'Install Permission Needed',
-          'The update was downloaded but cannot be installed.\n\nPlease enable "Install from unknown sources" for FreeKiosk in your device settings, then try again.\n\nOn restricted devices (e.g. Echo Show), use:\nadb install -r <apk>',
+          'The update was downloaded but cannot be installed.\n\nPlease enable "Install from unknown sources" for ESP710 in your device settings, then try again.\n\nOn restricted devices (e.g. Echo Show), use:\nadb install -r <apk>',
         );
       } else {
         Alert.alert('Error', `Download failed:\n\n${errorMsg}`);
@@ -1785,7 +1785,7 @@ const SettingsScreenNew: React.FC<SettingsScreenProps> = ({ navigation }) => {
               
               Alert.alert(
                 'Success',
-                'Device Owner removed!\n\nYou can now uninstall FreeKiosk normally.',
+                'Device Owner removed!\n\nYou can now uninstall ESP710 normally.',
                 [{ text: 'OK', onPress: () => { revokeSettingsAccess(); navigation.reset({ index: 0, routes: [{ name: 'Kiosk' }] }); } }]
               );
             } catch (error: any) {

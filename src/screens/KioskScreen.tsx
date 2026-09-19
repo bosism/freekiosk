@@ -2950,7 +2950,7 @@ const KioskScreen: React.FC<KioskScreenProps> = ({ navigation }) => {
             styles.visualIndicator,
             {
               opacity: returnButtonVisible ? 1 : 0,
-              backgroundColor: returnButtonVisible ? '#2b7fff' : 'transparent',
+              backgroundColor: returnButtonVisible ? '#f0b429' : 'transparent',
             },
           ]}
           activeOpacity={1}
@@ -3061,7 +3061,7 @@ const styles = StyleSheet.create({
     right: 20,
     width: 50,
     height: 50,
-    backgroundColor: '#2b7fff',
+    backgroundColor: '#f0b429',
     borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',

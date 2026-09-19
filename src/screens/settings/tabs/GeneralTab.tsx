@@ -610,7 +610,7 @@ const GeneralTab: React.FC<GeneralTabProps> = ({
           )}
           <SettingsInfoBox variant="info">
             <Text style={styles.infoText}>
-              When a website returns a 401 Unauthorized response, FreeKiosk will automatically reply with these credentials. Leave username empty to disable.
+              When a website returns a 401 Unauthorized response, ESP710 will automatically reply with these credentials. Leave username empty to disable.
             </Text>
           </SettingsInfoBox>
         </SettingsSection>
@@ -812,8 +812,8 @@ const GeneralTab: React.FC<GeneralTabProps> = ({
                 </Text>
                 <Text style={styles.permissionHint}>
                   {hasUsageStatsPermission
-                    ? "Auto-relaunch monitoring is active. FreeKiosk can detect when the external app closes."
-                    : "Required for auto-relaunch. Without this, FreeKiosk cannot detect when the external app closes or crashes."}
+                    ? "Auto-relaunch monitoring is active. ESP710 can detect when the external app closes."
+                    : "Required for auto-relaunch. Without this, ESP710 cannot detect when the external app closes or crashes."}
                 </Text>
               </View>
             </View>

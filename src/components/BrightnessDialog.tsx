@@ -78,9 +78,9 @@ export default function BrightnessDialog({ visible, onClose }: Props) {
             minimumValue={0.05}
             maximumValue={1}
             step={0.01}
-            minimumTrackTintColor="#2b7fff"
+            minimumTrackTintColor="#f0b429"
             maximumTrackTintColor="#d0d0d0"
-            thumbTintColor="#2b7fff"
+            thumbTintColor="#f0b429"
             onValueChange={applyBrightness}
             onSlidingComplete={persistBrightness}
           />
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   value: {
-    color: '#2b7fff',
+    color: '#f0b429',
     fontSize: 24,
     fontWeight: '700',
     marginBottom: 12,

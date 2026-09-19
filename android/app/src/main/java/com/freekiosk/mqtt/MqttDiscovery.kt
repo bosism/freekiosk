@@ -49,11 +49,11 @@ class MqttDiscovery(
     var imageStreams: List<ImageStream> = emptyList()
 
     private fun buildDeviceBlock(localIp: String): JSONObject {
-        val displayName = deviceName?.takeIf { it.isNotBlank() } ?: "FreeKiosk $topicId"
+        val displayName = deviceName?.takeIf { it.isNotBlank() } ?: "ESP710 $topicId"
         return JSONObject().apply {
             put("identifiers", JSONArray().put("freekiosk_$deviceId"))
             put("name", displayName)
-            put("model", "${Build.MODEL} (FreeKiosk)")
+            put("model", "${Build.MODEL} (ESP710)")
             put("manufacturer", Build.MANUFACTURER.replaceFirstChar { it.uppercase() })
             put("sw_version", appVersion)
             put("hw_version", "Android ${Build.VERSION.RELEASE} (API ${Build.VERSION.SDK_INT})")

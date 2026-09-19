@@ -303,7 +303,7 @@ const PinInput: React.FC<PinInputProps> = ({ onSuccess }) => {
             keyboardType={pinMode === 'alphanumeric' ? 'default' : 'numeric'}
             maxLength={pinMode === 'alphanumeric' ? undefined : 6}
             placeholder={pinMode === 'alphanumeric' ? 'Enter password' : '••••'}
-            placeholderTextColor="#999999"
+            placeholderTextColor={Colors.textHint}
             autoCapitalize={pinMode === 'alphanumeric' ? 'none' : undefined}
             autoCorrect={false}
             autoComplete="off"
@@ -318,7 +318,7 @@ const PinInput: React.FC<PinInputProps> = ({ onSuccess }) => {
             disabled={isLoading || isLockedOut}
           >
             {isLoading ? (
-              <ActivityIndicator color="#fff" />
+              <ActivityIndicator color={Colors.textOnPrimary} />
             ) : (
               <Text style={styles.buttonText}>Validate</Text>
             )}
@@ -400,41 +400,41 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f5f5f5',
+    backgroundColor: Colors.background,
     padding: 20,
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 10,
-    color: '#333',
+    color: Colors.textPrimary,
   },
   subtitle: {
     fontSize: 14,
-    color: '#666',
+    color: Colors.textSecondary,
     marginBottom: 30,
   },
   input: {
     width: '80%',
     height: 60,
     borderWidth: 2,
-    borderColor: '#2b7fff',
+    borderColor: Colors.primary,
     borderRadius: 8,
     paddingHorizontal: 20,
     fontSize: 24,
-    color: '#333333',
-    backgroundColor: '#fff',
+    color: Colors.textPrimary,
+    backgroundColor: Colors.surface,
     marginBottom: 20,
     textAlign: 'center',
     letterSpacing: 10,
   },
   inputDisabled: {
-    backgroundColor: '#e0e0e0',
-    borderColor: '#999',
+    backgroundColor: Colors.surfaceVariant,
+    borderColor: Colors.border,
     opacity: 0.6,
   },
   button: {
-    backgroundColor: '#2b7fff',
+    backgroundColor: Colors.primary,
     paddingHorizontal: 50,
     paddingVertical: 15,
     borderRadius: 8,
@@ -442,25 +442,25 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonDisabled: {
-    backgroundColor: '#999',
+    backgroundColor: Colors.textDisabled,
     opacity: 0.6,
   },
   buttonText: {
-    color: '#fff',
+    color: Colors.textOnPrimary,
     fontSize: 18,
     fontWeight: 'bold',
   },
   warningContainer: {
-    backgroundColor: '#fff3cd',
+    backgroundColor: Colors.cardWarning,
     borderWidth: 1,
-    borderColor: '#ffc107',
+    borderColor: Colors.warning,
     borderRadius: 8,
     padding: 12,
     marginBottom: 20,
     width: '80%',
   },
   warningText: {
-    color: '#856404',
+    color: Colors.warning,
     fontSize: 14,
     fontWeight: '600',
     textAlign: 'center',
@@ -468,11 +468,11 @@ const styles = StyleSheet.create({
   lockoutContainer: {
     alignItems: 'center',
     padding: 30,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.surface,
     borderRadius: 12,
     width: '80%',
     borderWidth: 2,
-    borderColor: '#dc3545',
+    borderColor: Colors.error,
   },
   lockoutIcon: {
     fontSize: 64,
@@ -481,19 +481,19 @@ const styles = StyleSheet.create({
   lockoutTitle: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#dc3545',
+    color: Colors.error,
     marginBottom: 10,
   },
   lockoutText: {
     fontSize: 16,
-    color: '#666',
+    color: Colors.textSecondary,
     marginBottom: 20,
     textAlign: 'center',
   },
   lockoutTimer: {
     fontSize: 32,
     fontWeight: 'bold',
-    color: '#dc3545',
+    color: Colors.error,
     fontFamily: 'monospace',
   },
   quickControls: {
@@ -509,7 +509,7 @@ const styles = StyleSheet.create({
   quickBtn: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: Colors.surface,
     borderRadius: 8,
     paddingVertical: 10,
     paddingHorizontal: 8,
@@ -517,11 +517,11 @@ const styles = StyleSheet.create({
     width: '31%',
     minHeight: 72,
     borderWidth: 1,
-    borderColor: '#e0e0e0',
+    borderColor: Colors.border,
   },
   quickBtnActive: {
-    borderColor: '#f0b400',
-    backgroundColor: '#fff7d6',
+    borderColor: Colors.primary,
+    backgroundColor: Colors.primaryLight,
   },
   quickBtnIcon: {
     fontSize: 28,
@@ -530,15 +530,15 @@ const styles = StyleSheet.create({
   quickBtnLabel: {
     fontSize: 11,
     fontWeight: '600',
-    color: '#444',
+    color: Colors.textPrimary,
     textAlign: 'center',
   },
   emergencyBtn: {
-    borderColor: '#dc3545',
+    borderColor: Colors.error,
     borderWidth: 2,
   },
   emergencyLabel: {
-    color: '#dc3545',
+    color: Colors.error,
   },
 });
 

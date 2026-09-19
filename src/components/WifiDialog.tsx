@@ -168,7 +168,7 @@ export default function WifiDialog({ visible, onClose }: Props) {
     } catch (e: any) {
       setScanning(false);
       console.warn('[WifiDialog] scan error:', e);
-      Alert.alert('Wi-Fi scan unavailable', e?.message || 'FreeKiosk does not have permission to scan for Wi-Fi networks.');
+      Alert.alert('Wi-Fi scan unavailable', e?.message || 'ESP710 does not have permission to scan for Wi-Fi networks.');
     }
   };
 
@@ -375,7 +375,7 @@ export default function WifiDialog({ visible, onClose }: Props) {
                       </View>
                     </View>
                     {isConnecting ? (
-                      <ActivityIndicator color="#2b7fff" size="small" />
+                      <ActivityIndicator color="#f0b429" size="small" />
                     ) : isCurrentNetwork ? (
                       <Text style={styles.connectedBadge}>Connected</Text>
                     ) : (
@@ -463,7 +463,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#2b7fff',
+    backgroundColor: '#f0b429',
     paddingTop: 48,
     paddingBottom: 16,
     paddingHorizontal: 20,
@@ -550,7 +550,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   scanBtn: {
-    backgroundColor: '#2b7fff',
+    backgroundColor: '#f0b429',
     marginHorizontal: 16,
     marginVertical: 12,
     paddingVertical: 14,
@@ -588,7 +588,7 @@ const styles = StyleSheet.create({
   },
   networkRowActive: {
     borderWidth: 2,
-    borderColor: '#2b7fff',
+    borderColor: '#f0b429',
   },
   networkInfo: {
     flex: 1,
@@ -608,7 +608,7 @@ const styles = StyleSheet.create({
   },
   connectedBadge: {
     fontSize: 13,
-    color: '#2b7fff',
+    color: '#f0b429',
     fontWeight: '700',
   },
   connectArrow: {
@@ -658,7 +658,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 2,
-    borderColor: '#2b7fff',
+    borderColor: '#f0b429',
     borderRadius: 8,
     marginBottom: 20,
   },
@@ -696,7 +696,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 14,
     borderRadius: 8,
-    backgroundColor: '#2b7fff',
+    backgroundColor: '#f0b429',
     alignItems: 'center',
   },
   pwdConnectDisabled: {

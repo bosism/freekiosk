@@ -98,7 +98,7 @@ object ScreenController {
                     else @Suppress("DEPRECATION") android.app.Notification.Builder(appCtx)
                     val notif = builder
                         .setSmallIcon(R.mipmap.ic_launcher)
-                        .setContentTitle("FreeKiosk")
+                        .setContentTitle(appCtx.getString(R.string.app_name))
                         .setContentText("Waking screen")
                         .setCategory(android.app.Notification.CATEGORY_ALARM)
                         .setFullScreenIntent(pi, true)

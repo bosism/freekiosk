@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, TouchableOpacity, Text, NativeModules, BackHandler } from 'react-native';
+import { Colors } from '../theme';
 import PinInput from '../components/PinInput';
 import { StorageService } from '../utils/storage';
 import { migrateOldPin, hasSecurePin } from '../utils/secureStorage';
@@ -134,11 +135,11 @@ const styles = StyleSheet.create({
     top: 40,
     left: 20,
     right: 20,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.surface,
     paddingVertical: 15,
     borderRadius: 10,
     borderWidth: 2,
-    borderColor: '#ddd',
+    borderColor: Colors.border,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
@@ -147,7 +148,7 @@ const styles = StyleSheet.create({
     zIndex: 1000,
   },
   backButtonText: {
-    color: '#666',
+    color: Colors.textPrimary,
     fontSize: 18,
     fontWeight: '600',
     textAlign: 'center',

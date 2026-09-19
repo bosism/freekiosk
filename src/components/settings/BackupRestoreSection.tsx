@@ -126,7 +126,7 @@ const BackupRestoreSection: React.FC<BackupRestoreSectionProps> = ({
         } else {
           Alert.alert(
             'Invalid Backup',
-            parsed.error || 'The selected file is not a valid FreeKiosk backup.',
+            parsed.error || 'The selected file is not a valid ESP710 backup.',
             [{ text: 'OK' }]
           );
         }

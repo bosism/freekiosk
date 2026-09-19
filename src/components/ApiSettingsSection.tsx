@@ -216,7 +216,7 @@ export const ApiSettingsSection: React.FC<ApiSettingsSectionProps> = ({
               <Text style={styles.statusText}>
                 {isLoading ? 'Starting...' : serverRunning ? 'Server Running' : 'Server Stopped'}
               </Text>
-              {isLoading && <ActivityIndicator size="small" color="#007AFF" style={styles.loader} />}
+              {isLoading && <ActivityIndicator size="small" color="#f0b429" style={styles.loader} />}
             </View>
 
             {serverRunning && (
@@ -224,7 +224,7 @@ export const ApiSettingsSection: React.FC<ApiSettingsSectionProps> = ({
                 style={styles.urlContainer}
                 onPress={() => copyToClipboard(getApiUrl(), 'API URL')}
               >
-                <Icon name="link" size={16} color="#007AFF" />
+                <Icon name="link" size={16} color="#f0b429" />
                 <Text style={styles.urlText}>{getApiUrl()}</Text>
                 <Icon name="content-copy" size={16} color="#999" />
               </TouchableOpacity>
@@ -258,7 +258,7 @@ export const ApiSettingsSection: React.FC<ApiSettingsSectionProps> = ({
                 style={styles.smallButton}
                 onPress={generateApiKey}
               >
-                <Icon name="refresh" size={16} color="#007AFF" />
+                <Icon name="refresh" size={16} color="#f0b429" />
                 <Text style={styles.smallButtonText}>Generate</Text>
               </TouchableOpacity>
               {apiKey ? (
@@ -266,7 +266,7 @@ export const ApiSettingsSection: React.FC<ApiSettingsSectionProps> = ({
                   style={styles.smallButton}
                   onPress={() => copyToClipboard(apiKey, 'API Key')}
                 >
-                  <Icon name="content-copy" size={16} color="#007AFF" />
+                  <Icon name="content-copy" size={16} color="#f0b429" />
                   <Text style={styles.smallButtonText}>Copy</Text>
                 </TouchableOpacity>
               ) : null}
@@ -393,7 +393,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginHorizontal: 8,
     fontSize: 14,
-    color: '#007AFF',
+    color: '#f0b429',
     fontFamily: 'monospace',
   },
   apiKeyContainer: {
@@ -414,7 +414,7 @@ const styles = StyleSheet.create({
   },
   smallButtonText: {
     fontSize: 12,
-    color: '#007AFF',
+    color: '#f0b429',
     marginLeft: 4,
   },
   endpointsContainer: {
@@ -457,7 +457,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 8,
     fontSize: 13,
-    color: '#1e63d6',
+    color: '#c48f14',
     lineHeight: 18,
   },
 });

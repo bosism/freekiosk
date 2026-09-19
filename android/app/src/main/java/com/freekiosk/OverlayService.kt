@@ -289,7 +289,7 @@ class OverlayService : Service() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 CHANNEL_ID,
-                "FreeKiosk Overlay",
+                "ESP710 Overlay",
                 NotificationManager.IMPORTANCE_LOW
             ).apply {
                 description = "Overlay service for external app mode"

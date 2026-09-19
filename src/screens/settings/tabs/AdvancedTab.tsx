@@ -139,7 +139,7 @@ const AdvancedTab: React.FC<AdvancedTabProps> = ({
     }
     Alert.alert(
       'Enroll in Cloud Management',
-      'Enrolling will reset all local FreeKiosk settings. The device will then be configured from the cloud.\n\nContinue?',
+      'Enrolling will reset all local ESP710 settings. The device will then be configured from the cloud.\n\nContinue?',
       [
         { text: 'Cancel', style: 'cancel' },
         {
@@ -202,7 +202,7 @@ const AdvancedTab: React.FC<AdvancedTabProps> = ({
   const handleUnenroll = () => {
     Alert.alert(
       'Leave Cloud Management',
-      'This will disconnect the device from the cloud and wipe all FreeKiosk settings.\n\nContinue?',
+      'This will disconnect the device from the cloud and wipe all ESP710 settings.\n\nContinue?',
       [
         { text: 'Cancel', style: 'cancel' },
         {
@@ -460,8 +460,8 @@ const AdvancedTab: React.FC<AdvancedTabProps> = ({
 
         <SettingsInfoBox variant="info" icon="help-circle" title="Why is this needed?">
           <Text style={styles.infoText}>
-            The Accessibility Service allows FreeKiosk to send keyboard input (remote control, text input) to external apps.{'\n\n'}
-            Without it, keyboard emulation only works inside FreeKiosk's own WebView.
+            The Accessibility Service allows ESP710 to send keyboard input (remote control, text input) to external apps.{'\n\n'}
+            Without it, keyboard emulation only works inside ESP710's own WebView.
           </Text>
         </SettingsInfoBox>
 
@@ -484,7 +484,7 @@ const AdvancedTab: React.FC<AdvancedTabProps> = ({
             <Text style={styles.hint}>
               {isDeviceOwner
                 ? 'Device Owner mode can enable the service automatically if the WRITE_SECURE_SETTINGS permission has been granted via ADB. Otherwise, enable it manually in Android settings.'
-                : 'Enable "FreeKiosk" in Settings → Accessibility → Installed Services.'}
+                : 'Enable "ESP710" in Settings → Accessibility → Installed Services.'}
             </Text>
           </>
         )}
@@ -519,7 +519,7 @@ const AdvancedTab: React.FC<AdvancedTabProps> = ({
           <SettingsInfoBox variant="info" icon="lock" title="Kiosk Mode Active">
             <Text style={styles.infoText}>
               Kiosk mode will be temporarily paused to open Android settings.{' '}
-              It will automatically re-engage when you return to FreeKiosk.
+              It will automatically re-engage when you return to ESP710.
             </Text>
           </SettingsInfoBox>
         )}
@@ -605,7 +605,7 @@ const AdvancedTab: React.FC<AdvancedTabProps> = ({
       
       {/* Version footer */}
       <Text style={styles.versionFooter}>
-        FreeKiosk v{currentVersion}
+        ESP710 v{currentVersion}
       </Text>
     </View>
   );

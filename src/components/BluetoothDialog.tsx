@@ -300,7 +300,7 @@ export default function BluetoothDialog({ visible, onClose }: Props) {
             disabled={isBusy || pairingAddress !== null}
           >
             {isBusy ? (
-              <ActivityIndicator color="#1e63d6" size="small" />
+              <ActivityIndicator color="#c48f14" size="small" />
             ) : (
               <Text style={styles.deviceActionBtnText}>
                 {item.connected ? 'Disconnect' : 'Connect'}
@@ -330,7 +330,7 @@ export default function BluetoothDialog({ visible, onClose }: Props) {
           </Text>
         </View>
         {isPairing ? (
-          <ActivityIndicator color="#2b7fff" size="small" />
+          <ActivityIndicator color="#f0b429" size="small" />
         ) : (
           <Text style={styles.pairBtn}>Pair ›</Text>
         )}
@@ -369,7 +369,7 @@ export default function BluetoothDialog({ visible, onClose }: Props) {
             <View style={styles.toggleRow}>
               <Text style={styles.toggleLabel}>Bluetooth</Text>
               {togglingBt ? (
-                <ActivityIndicator color="#2b7fff" />
+                <ActivityIndicator color="#f0b429" />
               ) : (
                 <Switch
                   value={btInfo?.isEnabled ?? false}
@@ -455,7 +455,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#1e63d6',
+    backgroundColor: '#c48f14',
     paddingTop: 48,
     paddingBottom: 16,
     paddingHorizontal: 20,
@@ -506,7 +506,7 @@ const styles = StyleSheet.create({
     paddingBottom: 6,
   },
   scanBtn: {
-    backgroundColor: '#1e63d6',
+    backgroundColor: '#c48f14',
     marginHorizontal: 16,
     marginTop: 12,
     marginBottom: 4,
@@ -545,7 +545,7 @@ const styles = StyleSheet.create({
   },
   deviceRowConnected: {
     borderWidth: 2,
-    borderColor: '#1e63d6',
+    borderColor: '#c48f14',
   },
   deviceInfo: {
     flex: 1,
@@ -567,7 +567,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   deviceStatusConnected: {
-    color: '#1e63d6',
+    color: '#c48f14',
   },
   deviceActions: {
     alignItems: 'flex-end',
@@ -579,7 +579,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1,
-    borderColor: '#1e63d6',
+    borderColor: '#c48f14',
     borderRadius: 6,
     marginTop: 6,
     paddingHorizontal: 10,
@@ -589,7 +589,7 @@ const styles = StyleSheet.create({
   },
   deviceActionBtnText: {
     fontSize: 13,
-    color: '#1e63d6',
+    color: '#c48f14',
     fontWeight: '700',
   },
   deviceHint: {
@@ -599,7 +599,7 @@ const styles = StyleSheet.create({
   },
   pairBtn: {
     fontSize: 15,
-    color: '#1e63d6',
+    color: '#c48f14',
     fontWeight: '700',
   },
   scanningText: {

@@ -238,7 +238,7 @@ const ExternalAppOverlay: React.FC<ExternalAppOverlayProps> = ({
             style={styles.miniLogo}
             resizeMode="contain"
           />
-          <Text style={styles.multiAppTitle}>FreeKiosk</Text>
+          <Text style={styles.multiAppTitle}>ESP710</Text>
         </View>
         <FlatList
           data={homeScreenApps}
@@ -264,7 +264,7 @@ const ExternalAppOverlay: React.FC<ExternalAppOverlayProps> = ({
               buttonPositionStyle,
               {
                 opacity: returnButtonVisible ? 1 : 0,
-                backgroundColor: returnButtonVisible ? '#2b7fff' : 'transparent',
+                backgroundColor: returnButtonVisible ? '#f0b429' : 'transparent',
               },
             ]}
             activeOpacity={1}
@@ -307,7 +307,7 @@ const ExternalAppOverlay: React.FC<ExternalAppOverlayProps> = ({
           </View>
 
           {/* Title */}
-          <Text style={styles.title}>FreeKiosk</Text>
+          <Text style={styles.title}>ESP710</Text>
           <Text style={styles.subtitle}>External App Mode</Text>
 
           {/* Status Message */}
@@ -316,7 +316,7 @@ const ExternalAppOverlay: React.FC<ExternalAppOverlayProps> = ({
               <Icon
                 name={isAppLaunched ? 'cellphone' : 'timer-sand'}
                 size={32}
-                color="#2b7fff"
+                color="#f0b429"
                 style={styles.statusIcon}
               />
               <Text style={styles.statusText}>
@@ -337,7 +337,7 @@ const ExternalAppOverlay: React.FC<ExternalAppOverlayProps> = ({
                 <Icon name="test-tube" size={28} color="#f59e0b" style={styles.warningIcon} />
                 <Text style={styles.warningTitle}>Test Mode Active</Text>
                 <Text style={styles.warningText}>
-                  You can use the Android back button to return to FreeKiosk.
+                  You can use the Android back button to return to ESP710.
                 </Text>
               </View>
             </View>
@@ -379,7 +379,7 @@ const ExternalAppOverlay: React.FC<ExternalAppOverlayProps> = ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#2b7fff',
+    backgroundColor: '#000000',
   },
   scrollContent: {
     flexGrow: 1,
@@ -484,7 +484,7 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   primaryButton: {
-    backgroundColor: '#fff',
+    backgroundColor: '#f0b429',
     paddingVertical: 18,
     paddingHorizontal: 40,
     borderRadius: 12,
@@ -497,7 +497,7 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   primaryButtonText: {
-    color: '#2b7fff',
+    color: '#0a0c0e',
     fontSize: 18,
     fontWeight: 'bold',
   },
