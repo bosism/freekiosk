@@ -1,0 +1,35 @@
+name: Publish screenshots
+
+# Copies the ESP710-screenshots artifact of a given "Android APK" run into
+# docs/screenshots on the branch this workflow is dispatched on, so the captures can be
+# viewed on GitHub (artifacts are only downloadable as a zip).
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: Run id of the Android APK workflow that produced ESP710-screenshots
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: ESP710-screenshots
+          path: docs/screenshots
+          run-id: ${{ inputs.run_id }}
+          github-token: ${{ github.token }}
+
+      - name: Commit screenshots
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/screenshots
+          git commit -m "docs: emulator screenshots from Android APK run ${{ inputs.run_id }}" || { echo "nothing to commit"; exit 0; }
+          git push
