@@ -22,17 +22,30 @@ try:
     xml = open('/tmp/ui.xml', encoding='utf-8', errors='ignore').read()
 except FileNotFoundError:
     sys.exit(1)
+# Prefer an exact (case-insensitive) match, so "Display" hits the Display tab and not
+# the "Display Mode" heading; fall back to a substring match. Tab labels render
+# uppercase, hence case-insensitive.
+exact, partial = None, None
 for m in re.finditer(r'<node [^>]*>', xml):
     node = m.group(0)
     text = re.search(r'text="([^"]*)"', node)
     desc = re.search(r'content-desc="([^"]*)"', node)
-    if needle in ((text.group(1) if text else '') + ' ' + (desc.group(1) if desc else '')):
-        b = re.search(r'bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"', node)
-        if b:
-            x1, y1, x2, y2 = map(int, b.groups())
-            print((x1 + x2) // 2, (y1 + y2) // 2)
-            sys.exit(0)
-sys.exit(1)
+    labels = [v.group(1) for v in (text, desc) if v and v.group(1)]
+    b = re.search(r'bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"', node)
+    if not b or not labels:
+        continue
+    x1, y1, x2, y2 = map(int, b.groups())
+    if x2 <= x1 or y2 <= y1:
+        continue
+    centre = ((x1 + x2) // 2, (y1 + y2) // 2)
+    if any(l.lower() == needle.lower() for l in labels):
+        exact = exact or centre
+    elif any(needle.lower() in l.lower() for l in labels):
+        partial = partial or centre
+hit = exact or partial
+if not hit:
+    sys.exit(1)
+print(*hit)
 PY
 )
     if [ -n "$xy" ]; then
