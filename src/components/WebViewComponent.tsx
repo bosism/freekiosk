@@ -899,7 +899,7 @@ const WebViewComponent = forwardRef<WebViewComponentRef, WebViewComponentProps>(
               onPress={handleNavigateToSettings}
               activeOpacity={0.8}
             >
-              <Icon name="rocket-launch" size={20} color="#f0b429" style={styles.buttonLeadingIcon} />
+              <Icon name="rocket-launch" size={20} color="#0a0c0e" style={styles.buttonLeadingIcon} />
               <Text style={styles.setupButtonText}>
                 Start Configuration
               </Text>
