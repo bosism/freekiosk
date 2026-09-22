@@ -60,6 +60,8 @@ jobs:
           if-no-files-found: error
 
   screenshots:
+    # Branch pushes only: the job commits back to the pushed branch.
+    if: github.ref_type == 'branch'
     needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 45
@@ -107,3 +109,32 @@ jobs:
           git commit -m "docs: emulator screenshots for ${GITHUB_SHA::7}" || { echo "nothing to commit"; exit 0; }
           git pull --rebase origin "${GITHUB_REF_NAME}"
           git push origin "HEAD:${GITHUB_REF_NAME}"
+
+  release:
+    if: github.ref_type == 'tag'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: ESP710-apk
+          path: dist
+
+      - name: Publish GitHub release with the APK
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="${GITHUB_REF_NAME}"
+          apk=$(ls dist/*.apk | head -1)
+          (cd dist && sha256sum "$(basename "$apk")" > "$(basename "$apk").sha256")
+          sed "s|__TAG__|${tag}|g; s|__SHA__|${GITHUB_SHA}|g; s|__APK__|$(basename "$apk")|g; s|__SHA256__|$(cut -d' ' -f1 "${apk}.sha256")|g" \
+            .github/release-notes-esp710.md > /tmp/notes.md
+          gh release create "$tag" "$apk" "${apk}.sha256" \
+            --repo "${GITHUB_REPOSITORY}" \
+            --target "${GITHUB_SHA}" \
+            --title "ESP710 ${tag#esp710-}" \
+            --notes-file /tmp/notes.md
