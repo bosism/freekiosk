@@ -113,8 +113,12 @@ jobs:
           git pull --rebase origin "${GITHUB_REF_NAME}"
           git push origin "HEAD:${GITHUB_REF_NAME}"
 
+  # Publishes a GitHub release with the APK. Two ways in:
+  #  - push an esp710-v* tag, or
+  #  - put the tag name in .github/esp710-release.txt on the branch (this environment
+  #    cannot push tags). The job creates the tag at the built commit and skips when a
+  #    release for that tag already exists, so it is safe on every push.
   release:
-    if: github.ref_type == 'tag'
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -122,16 +126,35 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Resolve release tag
+        id: tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
+            tag="${GITHUB_REF_NAME}"
+          elif [ -s .github/esp710-release.txt ]; then
+            tag=$(tr -d '[:space:]' < .github/esp710-release.txt)
+          else
+            echo "no release requested"; exit 0
+          fi
+          if gh release view "$tag" --repo "${GITHUB_REPOSITORY}" >/dev/null 2>&1; then
+            echo "release $tag already exists, nothing to do"; exit 0
+          fi
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+
       - uses: actions/download-artifact@v4
+        if: steps.tag.outputs.tag != ''
         with:
           name: ESP710-apk
           path: dist
 
       - name: Publish GitHub release with the APK
+        if: steps.tag.outputs.tag != ''
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          tag="${GITHUB_REF_NAME}"
+          tag="${{ steps.tag.outputs.tag }}"
           apk=$(ls dist/*.apk | head -1)
           (cd dist && sha256sum "$(basename "$apk")" > "$(basename "$apk").sha256")
           sed "s|__TAG__|${tag}|g; s|__SHA__|${GITHUB_SHA}|g; s|__APK__|$(basename "$apk")|g; s|__SHA256__|$(cut -d' ' -f1 "${apk}.sha256")|g" \
