@@ -2,12 +2,15 @@ name: Android APK
 
 # Builds the ESP710-branded release APK on GitHub's runners (the GitHub-release variant:
 # self-update on, accessibility service kept, signed with the debug keystore unless a
-# keystore.properties is provided). The APK is attached to the run as an artifact.
+# keystore.properties is provided). The APK is attached to the run as an artifact, and a
+# push of an esp710-v* tag additionally publishes it as a GitHub release.
 on:
   push:
     branches:
       - 'claude/**'
       - 'esp710**'
+    tags:
+      - 'esp710-v*'
     paths-ignore:
       - 'docs/**'
       - '**.md'
